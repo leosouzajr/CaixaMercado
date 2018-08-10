@@ -8,9 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.leona.caixamercado.R;
+import com.example.leona.caixamercado.entidades.EntidadeProduto;
 import com.example.leona.caixamercado.viewholder.ProdutosViewHolder;
 
-public class ProdutosAdapter  extends RecyclerView.Adapter<ProdutosViewHolder> {
+import java.util.List;
+
+public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosViewHolder> {
+    private List<EntidadeProduto> entidadeProdutosList;
+
+    public ProdutosAdapter(List<EntidadeProduto> entidadeProdutosList) {
+        this.entidadeProdutosList = entidadeProdutosList;
+    }
 
     @NonNull
     @Override
@@ -18,17 +26,18 @@ public class ProdutosAdapter  extends RecyclerView.Adapter<ProdutosViewHolder> {
         Context context = parent.getContext();
         View viewProdutos;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        viewProdutos=layoutInflater.inflate(R.layout.row_list_produtos,parent,false);
-          return new ProdutosViewHolder(viewProdutos);
+        viewProdutos = layoutInflater.inflate(R.layout.row_list_produtos, parent, false);
+        return new ProdutosViewHolder(viewProdutos);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProdutosViewHolder holder, int position) {
-
+        EntidadeProduto entidadeProduto = this.entidadeProdutosList.get(position);
+        holder.preencherDados(entidadeProduto);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.entidadeProdutosList.size();
     }
 }
