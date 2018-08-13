@@ -7,6 +7,12 @@ public class EntidadeProduto {
         return codigo;
     }
 
+    public EntidadeProduto(String codigo, String produto) {
+        this.codigo = codigo;
+        this.produto = produto;
+    }
+
+
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -16,11 +22,6 @@ public class EntidadeProduto {
     }
 
     public void setProduto(String produto) {
-        this.produto = produto;
-    }
-
-    public EntidadeProduto(String codigo, String produto) {
-        this.codigo = codigo;
         this.produto = produto;
     }
 }

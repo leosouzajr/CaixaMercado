@@ -7,11 +7,13 @@ import com.example.leona.caixamercado.R;
 
 public class MainActivity extends AppCompatActivity {
     InicioFragment inicioFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         carregarFragment("inicio");
+
     }
 
     private void carregarFragment(String tipoFragment) {

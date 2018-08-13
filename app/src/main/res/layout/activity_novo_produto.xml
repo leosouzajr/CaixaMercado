@@ -41,7 +41,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+
+    +<EditText
         android:id="@+id/et_salvar_codigo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

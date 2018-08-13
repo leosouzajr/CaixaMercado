@@ -44,6 +44,7 @@ public class InicioFragment extends Fragment {
     }
     private static class ViewHolder{
         EditText etBusca;
+
         RecyclerView recyclerProdutos;
     }
 
