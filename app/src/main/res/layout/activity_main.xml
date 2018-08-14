@@ -7,7 +7,7 @@
     tools:context=".views.MainActivity">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/fab_abrir_cadastro"
         android:layout_width="64dp"
         android:layout_height="58dp"
         android:layout_marginBottom="8dp"
