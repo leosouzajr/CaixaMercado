@@ -12,7 +12,7 @@ public class CaixaMercadoDataBaseHelper extends SQLiteOpenHelper{
     private static final String SQL_CRIAR_TABELA_PRODUTOS=
             "create table "+ BancoDeDadosConstantes.PRODUTOS.NOME_TABELA + "(" +
             BancoDeDadosConstantes.PRODUTOS.COLUNAS.CODIGO + " integer primary key,"+
-            BancoDeDadosConstantes.PRODUTOS.COLUNAS.NOME_PRODUTO + "text);" ;
+            BancoDeDadosConstantes.PRODUTOS.COLUNAS.NOME_PRODUTO + " text);" ;
     private static final String SQL_DROP_TABELA_PRODUTOS =
             "drop table if exists " + BancoDeDadosConstantes.PRODUTOS.NOME_TABELA
                     +";";

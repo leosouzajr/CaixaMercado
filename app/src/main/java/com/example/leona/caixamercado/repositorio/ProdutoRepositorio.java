@@ -2,10 +2,14 @@ package com.example.leona.caixamercado.repositorio;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.leona.caixamercado.constantes.BancoDeDadosConstantes;
 import com.example.leona.caixamercado.entidades.EntidadeProduto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //Classe que irá abrir a conexao com o BD e
 // conterá os metodos com os codigos SQL
@@ -61,5 +65,34 @@ public class ProdutoRepositorio {
         }
 
         return sucessoNaInsercao;
+    }
+
+    public List<EntidadeProduto> obterProdutos(String consulta){
+        List<EntidadeProduto> listaProdutos = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase =
+                this.mCaixaMercadoDataBaseHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(consulta,null);
+
+        if(cursor != null && cursor.getCount() > 0){
+            while (cursor.moveToNext()){
+                EntidadeProduto entidadeProduto =
+                        new EntidadeProduto();
+                entidadeProduto.setCodigo(
+                        cursor.getString(
+                                cursor.getColumnIndex(
+                                        BancoDeDadosConstantes.PRODUTOS.COLUNAS.CODIGO)));
+                entidadeProduto.setProduto(
+                        cursor.getString(
+                                cursor.getColumnIndex(
+                                        BancoDeDadosConstantes.PRODUTOS.COLUNAS.NOME_PRODUTO)));
+                listaProdutos.add(entidadeProduto);
+            }
+        }
+        if(cursor != null){
+            cursor.close();
+        }
+
+        return listaProdutos;
     }
 }

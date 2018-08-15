@@ -11,7 +11,10 @@ public class EntidadeProduto {
         this.codigo = codigo;
         this.produto = produto;
     }
-
+    public EntidadeProduto() {
+        this.codigo = "";
+        this.produto = "";
+    }
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
